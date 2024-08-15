@@ -8,8 +8,40 @@ import {
   CardContent,
   TextField,
 } from "@mui/material";
+import React, { useState } from "react";
 
-const ContactPage = () => {
+type FormDataProps = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+const ContactPage: React.FC = () => {
+  const [formData, setFormData] = useState<FormDataProps>({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [ev.target.name]: ev.target.value, // we can destructure the name and value from target
+    }));
+  };
+
+  const handleSubmit = (ev: React.FormEvent) => {
+    ev.preventDefault();
+
+    console.log(formData);
+    // Reset the form after submission
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
+  };
+
   return (
     <Container maxWidth="lg" sx={{ py: 6 }}>
       <Typography variant="h3" gutterBottom>
@@ -26,7 +58,11 @@ const ContactPage = () => {
               using the form below, and we'll get back to you as soon as
               possible.
             </Typography>
-            <ContactForm />
+            <ContactForm
+              onSubmit={handleSubmit}
+              onChange={handleChange}
+              formData={formData}
+            />
           </Box>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -64,18 +100,33 @@ const ContactPage = () => {
   );
 };
 
-const ContactForm = () => {
+const ContactForm: React.FC<{
+  onSubmit: (ev: React.FormEvent) => void;
+  onChange: (ev: React.ChangeEvent<HTMLInputElement>) => void;
+  formData: FormDataProps;
+}> = ({ onSubmit, onChange, formData }) => {
   return (
-    <Box component="form" noValidate autoComplete="off">
+    <Box onSubmit={onSubmit} component="form" noValidate autoComplete="off">
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-          <TextField label="Name" variant="outlined" fullWidth required />
+          <TextField
+            label="Name"
+            variant="outlined"
+            name="name"
+            value={formData.name}
+            onChange={onChange}
+            fullWidth
+            required
+          />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             label="Email"
             type="email"
             variant="outlined"
+            name="email"
+            value={formData.email}
+            onChange={onChange}
             fullWidth
             required
           />
@@ -85,13 +136,16 @@ const ContactForm = () => {
             label="Message"
             variant="outlined"
             fullWidth
+            name="message"
+            value={formData.message}
+            onChange={onChange}
             multiline
             rows={4}
             required
           />
         </Grid>
         <Grid item xs={12}>
-          <Button variant="contained" color="primary" fullWidth>
+          <Button type="submit" variant="contained" color="primary" fullWidth>
             Send Message
           </Button>
         </Grid>
