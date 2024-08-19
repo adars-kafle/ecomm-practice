@@ -11,16 +11,16 @@
 ### Screenshots
 
 - **Home Page**:
-  ![[./docs/home.png]]
+  ![Home Page](./docs/home.png)
 
 - **Products Page**:
-  ![[./docs/products.png]]
+  ![Products Page](./docs/products.png)
 
 - **Cart Page**:
-  ![[./docs/cart.png]]
+  ![Cart Page](./docs/cart.png)
 
 - **Login Page**:
-  ![[./docs/login.png]]
+  ![Login Page](./docs/login.png)
 
 - **Signup Page**:
-  ![[./docs/signup.png]]
+  ![Signup Page](./docs/signup.png)
