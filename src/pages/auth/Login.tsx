@@ -1,5 +1,6 @@
-import { Container, Box, Typography, TextField, Button } from "@mui/material";
+import { Container, Box, Typography, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import StyledTextField from "./_components/StyledTextField";
 
 const LoginPage = () => {
   const theme = useTheme();
@@ -33,65 +34,8 @@ const LoginPage = () => {
           Login
         </Typography>
         <Box component="form" sx={{ mt: 2 }}>
-          <TextField
-            variant="outlined"
-            fullWidth
-            label="Email Address"
-            margin="normal"
-            InputLabelProps={{ style: { color: "white" } }}
-            InputProps={{
-              style: {
-                color: "white",
-                backgroundColor: theme.palette.primary.light,
-              },
-            }}
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "white",
-                },
-                "&:hover fieldset": {
-                  borderColor: theme.palette.secondary.main,
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: theme.palette.secondary.main,
-                },
-              },
-              "& label.Mui-focused": {
-                color: theme.palette.secondary.main,
-              },
-            }}
-          />
-          <TextField
-            variant="outlined"
-            fullWidth
-            type="password"
-            label="Password"
-            margin="normal"
-            InputLabelProps={{ style: { color: "white" } }}
-            InputProps={{
-              style: {
-                color: "white",
-                backgroundColor: theme.palette.primary.light,
-              },
-            }}
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "white",
-                },
-                "&:hover fieldset": {
-                  borderColor: theme.palette.secondary.main,
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: theme.palette.secondary.main,
-                },
-              },
-              "& label.Mui-focused": {
-                color: theme.palette.secondary.main,
-              },
-            }}
-          />
+          <StyledTextField label="Email Address" />
+          <StyledTextField label="Password" type="password" />
           <Button
             variant="contained"
             color="secondary"
@@ -109,7 +53,7 @@ const LoginPage = () => {
           </Button>
         </Box>
         <Typography align="center" sx={{ color: "white" }}>
-          Don’t have an account?{" "}
+          Don't have an account?{" "}
           <Button
             color="secondary"
             href="/signup"

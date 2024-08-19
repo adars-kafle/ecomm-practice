@@ -1,5 +1,6 @@
-import { Container, Box, Typography, TextField, Button } from "@mui/material";
+import { Container, Box, Typography, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import StyledTextField from "./_components/StyledTextField";
 
 const SignupPage = () => {
   const theme = useTheme();
@@ -21,7 +22,7 @@ const SignupPage = () => {
           backgroundColor: theme.palette.primary.main,
           boxShadow: 3,
           width: "100%",
-          maxWidth: 700, // Set max width to avoid congestion
+          maxWidth: 700,
         }}
       >
         <Typography
@@ -34,124 +35,10 @@ const SignupPage = () => {
           Sign Up
         </Typography>
         <Box component="form" sx={{ mt: 2 }}>
-          <TextField
-            variant="outlined"
-            fullWidth
-            label="Full Name"
-            margin="normal"
-            InputLabelProps={{ style: { color: "white" } }}
-            InputProps={{
-              style: {
-                color: "white",
-                backgroundColor: theme.palette.primary.light,
-              },
-            }}
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "white",
-                },
-                "&:hover fieldset": {
-                  borderColor: theme.palette.secondary.main,
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: theme.palette.secondary.main,
-                },
-              },
-              "& label.Mui-focused": {
-                color: theme.palette.secondary.main,
-              },
-            }}
-          />
-          <TextField
-            variant="outlined"
-            fullWidth
-            label="Email Address"
-            margin="normal"
-            InputLabelProps={{ style: { color: "white" } }}
-            InputProps={{
-              style: {
-                color: "white",
-                backgroundColor: theme.palette.primary.light,
-              },
-            }}
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "white",
-                },
-                "&:hover fieldset": {
-                  borderColor: theme.palette.secondary.main,
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: theme.palette.secondary.main,
-                },
-              },
-              "& label.Mui-focused": {
-                color: theme.palette.secondary.main,
-              },
-            }}
-          />
-          <TextField
-            variant="outlined"
-            fullWidth
-            label="Password"
-            type="password"
-            margin="normal"
-            InputLabelProps={{ style: { color: "white" } }}
-            InputProps={{
-              style: {
-                color: "white",
-                backgroundColor: theme.palette.primary.light,
-              },
-            }}
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "white",
-                },
-                "&:hover fieldset": {
-                  borderColor: theme.palette.secondary.main,
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: theme.palette.secondary.main,
-                },
-              },
-              "& label.Mui-focused": {
-                color: theme.palette.secondary.main,
-              },
-            }}
-          />
-          <TextField
-            variant="outlined"
-            fullWidth
-            label="Confirm Password"
-            type="password"
-            margin="normal"
-            InputLabelProps={{ style: { color: "white" } }}
-            InputProps={{
-              style: {
-                color: "white",
-                backgroundColor: theme.palette.primary.light,
-              },
-            }}
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  borderColor: "white",
-                },
-                "&:hover fieldset": {
-                  borderColor: theme.palette.secondary.main,
-                },
-                "&.Mui-focused fieldset": {
-                  borderColor: theme.palette.secondary.main,
-                },
-              },
-              "& label.Mui-focused": {
-                color: theme.palette.secondary.main,
-              },
-            }}
-          />
+          <StyledTextField label="Full Name" />
+          <StyledTextField label="Email Address" />
+          <StyledTextField label="Password" type="password" />
+          <StyledTextField label="Confirm Password" type="password" />
           <Button
             variant="contained"
             color="secondary"
