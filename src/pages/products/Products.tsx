@@ -97,7 +97,13 @@ const ProductsPage = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: 6 }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography
+        variant="h4"
+        gutterBottom
+        sx={{
+          fontWeight: "bold",
+        }}
+      >
         All Products
       </Typography>
       <Grid container spacing={4} sx={{ mb: 4 }}>
@@ -134,6 +140,9 @@ const ProductsPage = () => {
                   variant="h5"
                   component={Link}
                   to={`/product/${product.id}`}
+                  sx={{
+                    fontWeight: 500,
+                  }}
                 >
                   {product.name}
                 </Typography>
@@ -149,7 +158,16 @@ const ProductsPage = () => {
                 }}
               >
                 <Typography variant="h6">${product.price}</Typography>
-                <Button size="small" variant="contained" color="primary">
+                <Button
+                  size="small"
+                  component={Link}
+                  to="/cart"
+                  variant="contained"
+                  color="secondary"
+                  sx={{
+                    color: "text.primary",
+                  }}
+                >
                   Add to Cart
                 </Button>
               </CardActions>

@@ -7,6 +7,7 @@ const theme = createTheme({
       fontFamily: "Barlow Semi Condensed, Arial, sans-serif",
       fontWeight: 500,
       textTransform: "none",
+      color: "white",
     },
     h1: {
       fontFamily: "Barlow Semi Condensed, Arial, sans-serif",
@@ -25,7 +26,7 @@ const theme = createTheme({
       main: "#f8a430!important",
     },
     background: {
-      default: "rgb(20, 54, 102)",
+      default: "#66748c !important",
     },
   },
 });

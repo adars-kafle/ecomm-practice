@@ -22,8 +22,8 @@ const pages = ["Home", "Products"];
 const settings = ["Account", "Dashboard", "Logout"];
 
 const ColorButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.getContrastText(theme.palette.secondary.main),
-  backgroundColor: theme.palette.secondary.main,
+  color: "white",
+  backgroundColor: theme.palette.background.default,
   "&:hover": {
     backgroundColor: theme.palette.secondary.dark,
   },
@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
   const theme = useTheme();
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const isLoggedIn = true; // Replace with actual auth state
+  const isLoggedIn = false; // Replace with actual auth state
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -55,29 +55,13 @@ const Navbar: React.FC = () => {
     <AppBar
       position="static"
       sx={{
-        backgroundColor: theme.palette.background.default,
+        backgroundColor: theme.palette.primary.main,
       }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Logo and Site Name */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            ECOMM
-          </Typography>
+          <img src="../../../public/logo.png" />
 
           {/* Mobile Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -141,12 +125,11 @@ const Navbar: React.FC = () => {
                 onClick={handleCloseNavMenu}
                 sx={{
                   my: 2,
-                  color: "white",
                   fontWeight: "semibold",
                   display: "block",
                 }}
               >
-                {page}
+                <Typography color="white">{page}</Typography>
               </Button>
             ))}
           </Box>
@@ -185,8 +168,17 @@ const Navbar: React.FC = () => {
             </Box>
           ) : (
             <div className="flex gap-3 items-center">
-              <ColorButton variant="contained">Login</ColorButton>
-              <Button variant="contained">Signup</Button>
+              <Button
+                component={Link}
+                to="/login"
+                variant="contained"
+                color="secondary"
+              >
+                Login
+              </Button>
+              <ColorButton component={Link} to="/signup" variant="contained">
+                Signup
+              </ColorButton>
             </div>
           )}
         </Toolbar>

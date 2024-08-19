@@ -88,7 +88,7 @@ const Home = () => {
         }}
       >
         <Typography variant="h2" gutterBottom>
-          Welcome to our E-commerce Store
+          Welcome to Varicon Store
         </Typography>
         <Button
           component={Link}
@@ -98,7 +98,9 @@ const Home = () => {
           size="large"
           sx={{ mt: 2 }}
         >
-          Shop Now
+          <Typography color="primary" fontWeight={500}>
+            Shop Now
+          </Typography>
         </Button>
       </Box>
       <Container maxWidth="lg" sx={{ py: 6 }}>
@@ -142,7 +144,13 @@ const Home = () => {
                   </CardContent>
                   <CardActions sx={styles.cardActions}>
                     <Typography variant="h6">${product.price}</Typography>
-                    <Button size="small" variant="contained" color="secondary">
+                    <Button
+                      component={Link}
+                      to="/cart"
+                      size="small"
+                      variant="contained"
+                      color="secondary"
+                    >
                       Add to Cart
                     </Button>
                   </CardActions>
@@ -193,7 +201,13 @@ const Home = () => {
                   </CardContent>
                   <CardActions sx={styles.cardActions}>
                     <Typography variant="h6">${product.price}</Typography>
-                    <Button size="small" variant="contained" color="secondary">
+                    <Button
+                      component={Link}
+                      to="/cart"
+                      size="small"
+                      variant="contained"
+                      color="secondary"
+                    >
                       Add to Cart
                     </Button>
                   </CardActions>
