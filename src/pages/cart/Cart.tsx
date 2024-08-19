@@ -33,7 +33,14 @@ const CartPage = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: 6 }}>
-      <Typography variant="h3" gutterBottom>
+      <Typography
+        color="primary"
+        variant="h3"
+        sx={{
+          fontWeight: "bold",
+        }}
+        gutterBottom
+      >
         Cart
       </Typography>
       {cartItems.length === 0 ? (
@@ -50,7 +57,14 @@ const CartPage = () => {
                   alt={product.name}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    color="primary"
+                    sx={{
+                      fontWeight: 500,
+                    }}
+                  >
                     {product.name}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
@@ -85,7 +99,7 @@ const CartPage = () => {
             component={Link}
             to="/products"
             variant="contained"
-            color="primary"
+            color="secondary"
           >
             Browse Products
           </Button>
@@ -94,7 +108,7 @@ const CartPage = () => {
             component={Link}
             to="/checkout"
             variant="contained"
-            color="primary"
+            color="secondary"
             disabled={cartItems.length === 0}
           >
             Proceed to Checkout

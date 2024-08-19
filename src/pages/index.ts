@@ -1,7 +1,6 @@
 import * as products from "./products";
 import Home from "./home/Home";
-import About from "./about/About";
-import Contact from "./contact/Contact";
 import Cart from "./cart/Cart";
+import * as auth from "./auth";
 
-export { products, Home, About, Contact, Cart };
+export { products, Home, Cart, auth };

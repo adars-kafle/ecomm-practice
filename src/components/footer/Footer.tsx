@@ -8,7 +8,7 @@ function Copyright() {
     <Typography variant="body2" color="text.secondary">
       {"Copyright © "}
       <Link color="inherit" href="/">
-        Ecommerce Website
+        Varicon Store
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
