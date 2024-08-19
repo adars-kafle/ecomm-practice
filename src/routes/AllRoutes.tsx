@@ -21,12 +21,6 @@ const AllRoutes = () => {
             element={<pages.products.ProductDetail />}
           />
 
-          {/* About Us Page */}
-          <Route path="/about-us" element={<pages.About />} />
-
-          {/* Contact Page */}
-          <Route path="/contact" element={<pages.Contact />} />
-
           {/* Cart Page */}
           <Route path="/cart" element={<pages.Cart />} />
         </Route>

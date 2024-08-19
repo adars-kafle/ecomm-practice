@@ -18,8 +18,8 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
 
-const pages = ["Home", "Products", "About Us", "Contact"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["Home", "Products"];
+const settings = ["Account", "Dashboard", "Logout"];
 
 const ColorButton = styled(Button)(({ theme }) => ({
   color: theme.palette.getContrastText(theme.palette.secondary.main),
@@ -52,7 +52,12 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <AppBar position="static" color="primary">
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: theme.palette.background.default,
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Logo and Site Name */}

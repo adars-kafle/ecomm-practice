@@ -94,7 +94,7 @@ const Home = () => {
           component={Link}
           to="/products"
           variant="contained"
-          color="primary"
+          color="secondary"
           size="large"
           sx={{ mt: 2 }}
         >
@@ -102,7 +102,66 @@ const Home = () => {
         </Button>
       </Box>
       <Container maxWidth="lg" sx={{ py: 6 }}>
-        <Typography variant="h4" gutterBottom>
+        <Typography
+          variant="h4"
+          gutterBottom
+          color="primary"
+          sx={{
+            fontWeight: "bold",
+          }}
+        >
+          All Products
+        </Typography>
+        <Grid container spacing={4}>
+          {products.map((product) => (
+            <Grid item xs={12} sm={6} md={4} key={product.id}>
+              <Paper sx={styles.paper}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="220"
+                    image={product.image}
+                    alt={product.name}
+                  />
+                  <CardContent>
+                    <Typography
+                      component={Link}
+                      to={`/product/${product.id}`}
+                      gutterBottom
+                      variant="h5"
+                      color="primary"
+                      sx={{
+                        fontWeight: 500,
+                      }}
+                    >
+                      {product.name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {product.description}
+                    </Typography>
+                  </CardContent>
+                  <CardActions sx={styles.cardActions}>
+                    <Typography variant="h6">${product.price}</Typography>
+                    <Button size="small" variant="contained" color="secondary">
+                      Add to Cart
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Paper>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+
+      <Container maxWidth="lg" sx={{ py: 6 }}>
+        <Typography
+          variant="h4"
+          gutterBottom
+          color="primary"
+          sx={{
+            fontWeight: "bold",
+          }}
+        >
           Featured Products
         </Typography>
         <Grid container spacing={4}>
@@ -122,6 +181,9 @@ const Home = () => {
                       to={`/product/${product.id}`}
                       gutterBottom
                       variant="h5"
+                      sx={{
+                        fontWeight: 500,
+                      }}
                     >
                       {product.name}
                     </Typography>
@@ -131,7 +193,7 @@ const Home = () => {
                   </CardContent>
                   <CardActions sx={styles.cardActions}>
                     <Typography variant="h6">${product.price}</Typography>
-                    <Button size="small" variant="contained" color="primary">
+                    <Button size="small" variant="contained" color="secondary">
                       Add to Cart
                     </Button>
                   </CardActions>
@@ -141,43 +203,6 @@ const Home = () => {
           ))}
         </Grid>
       </Container>
-      <Box
-        sx={{
-          backgroundColor: "#f5f5f5",
-          py: 6,
-          textAlign: "center",
-        }}
-      >
-        <Typography variant="h4" gutterBottom>
-          Why Choose Us?
-        </Typography>
-        <Grid container spacing={4}>
-          <Grid item xs={12} sm={4}>
-            <Typography variant="h5" gutterBottom>
-              Wide Selection
-            </Typography>
-            <Typography variant="body1">
-              We offer a wide range of high-quality products to meet your needs.
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <Typography variant="h5" gutterBottom>
-              Fast Delivery
-            </Typography>
-            <Typography variant="body1">
-              Get your orders delivered quickly and efficiently.
-            </Typography>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <Typography variant="h5" gutterBottom>
-              Excellent Service
-            </Typography>
-            <Typography variant="body1">
-              Our team is dedicated to providing exceptional customer service.
-            </Typography>
-          </Grid>
-        </Grid>
-      </Box>
     </>
   );
 };
